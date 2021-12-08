@@ -1,0 +1,21 @@
+{
+    "name": "idimensionz/common",
+    "description": "Library of reusable PHP components.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "iDimensionz\\Common\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jim Mullen",
+            "email": "info@idimensionz.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "psr/log": "^1.1.4|^3.0"
+    }
+}
