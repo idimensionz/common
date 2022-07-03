@@ -64,4 +64,9 @@ class ResultModel
 
         return $isValidLogger;
     }
+
+    public function getErrorMessages(): array
+    {
+        return $this->errorMessages;
+    }
 }
