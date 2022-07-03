@@ -6,28 +6,28 @@ use Throwable;
 
 trait ResultModelTrait
 {
-    public function failureResult(): ResultModel
+    public static function failureResult(): ResultModel
     {
         return new ResultModel(false);
     }
 
-    public function failureResultWithMessage(string $message): ResultModel
+    public static function failureResultWithMessage(string $message): ResultModel
     {
-        $resultModel = $this->failureResult();
+        $resultModel = static::failureResult();
         $resultModel->addErrorMessage($message);
 
         return $resultModel;
     }
 
-    public function failureResultWithException(Throwable $throwable): ResultModel
+    public static function failureResultWithException(Throwable $throwable): ResultModel
     {
-        $resultModel = $this->failureResultWithMessage($throwable->getMessage());
+        $resultModel = static::failureResultWithMessage($throwable->getMessage());
         $resultModel->exception = $throwable;
 
         return $resultModel;
     }
 
-    public function successResult(): ResultModel
+    public static function successResult(): ResultModel
     {
         return new ResultModel();
     }
@@ -35,8 +35,8 @@ trait ResultModelTrait
     /**
      * @param mixed $returnValue
      */
-    public function successResultWithReturnValue($returnValue): ResultModel
+    public static function successResultWithReturnValue($returnValue): ResultModel
     {
-        return $this->successResult(true, $returnValue);
+        return new ResultModel(true, $returnValue);
     }
 }
