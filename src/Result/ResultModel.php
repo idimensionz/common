@@ -4,6 +4,7 @@ namespace iDimensionz\Common\Result;
 
 use Psr\Log\LoggerAwareTrait;
 use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 use Throwable;
 
 class ResultModel
@@ -33,7 +34,7 @@ class ResultModel
     {
         $this->isSuccess = $isSuccess;
         $this->returnValue = $returnValue;
-        $this->setLogger($logger);
+        $this->setLogger($logger ?? new NullLogger());
     }
 
     /**
